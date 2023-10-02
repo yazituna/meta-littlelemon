@@ -1,8 +1,12 @@
 import React from "react";
+import BookingForm from "./BookingForm";
 
-const BookingPage = () => {
+const BookingPage = (props) => {
   return (
-    <div>Hello</div>
+    <>
+      <h1>Book now!</h1>
+      <BookingForm avaiableTimes = {props.avaiableTimes} submitForm = {props.submitForm}/>
+    </>
   );
 };
 
