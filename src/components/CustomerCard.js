@@ -2,18 +2,18 @@ import React from "react";
 
 const CustomerCard = ({ name, rating, description, imageSrc }) => {
   return (
-    <div className="customerscard column">
+    <div className="customers-card column">
       <div className="row">
-        <div className="column">
+        <div className="column-cust-image">
           <img className="customer-image" src={imageSrc} alt={name} /> 
         </div>
-        <div className="column">
-          <h3 className="card-title">{name}</h3>
-          <p className="card-title">{rating}</p>
+        <div className="column-cust-info">
+          <h3 className="card-title cust-info-text">{name}</h3>
+          <p className="card-title cust-info-text">{rating}</p>
         </div>
       </div>
       <div className="row">
-        <p>{description}</p>
+        <p className="boxed-text">{description}</p>
       </div>
     </div>
   );

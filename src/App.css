@@ -1,40 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+* {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -43,23 +9,26 @@ body {
 }
 
 .sectioncontainer{
-  padding: 3rem 10% 3rem 10%;
+  padding: 5rem 20% 5rem 20%;
 }
 
 header {
   display: flex;
   flex-wrap: wrap;
-  padding: 3rem 10% 3rem 10%;
+  justify-content: space-between;
+  padding: 3rem 20% 3rem 20%;
 }
 
 .display-title {
   font-family: 'MarkaziText';
   font-size: 64pt;
+  margin: 0;
 }
 
 .sub-title {
   font-family: 'MarkaziText';
   font-size: 40pt;
+  margin: 0;
 }
 
 .lead-text {
@@ -69,8 +38,8 @@ header {
 }
 
 .section-title {
-  font-family: 'KarlaExtraBold';
-  font-size: 20pt;
+  font-family: 'MarkaziText';
+  font-size: 40pt;
 }
 
 .section-title-center {
@@ -85,6 +54,13 @@ header {
 .card-title {
   font-family: 'KarlaBold';
   font-size: 18pt;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.special-title {
+  font-family: 'MarkaziText';
+  font-size: 24pt;
   font-weight: bold;
   padding-left: 20px;
 }
@@ -109,24 +85,36 @@ a {
 footer {
   display: flex;
   flex-wrap: wrap;
-  padding: 3rem 10% 3rem 10%;
+  justify-content: space-between;
+  padding: 3rem 20% 3rem 20%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 }
 
-.row::after {
-  content: "";
-  display: table;
-  clear: both;
+.row-spaced {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
 }
 
 .column {
   flex: 1;
-  margin: 20px;
+}
+
+.column-right {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: right;
+  align-items: center;
+  flex: 1;
 }
 
 .price {
@@ -136,8 +124,11 @@ footer {
 }
 
 .boxed-text {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 20px;
+}
+
+.text-left {
+  padding: 20px 20px 20px 0;
 }
 
 .order-link {
@@ -190,30 +181,51 @@ header nav li {
   border: none;
   font-size: 18px;
   font-weight: bold;
+  margin: 20px 0 20px 0;
 }
 
-#flagimage {
-  width: 375px;
-  height: 325px;
+#flag-image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 16px;
 }
 
 .specialscard {
   flex: 1;
   background-color: #EDEFEE;
-  margin: 20px;
+  margin: 60px 20px 60px 20px;
   border-radius: 16px;
+  padding-bottom: 20px;
+  min-height: 600px;
 }
 
-.specialsimage {
+.specials-image {
   width: 100%;
+  height: auto;
+  border-radius: 16px 16px 0 0;
+  margin-bottom: 20px;
 }
 
-.customerscard {
+.customers-card {
   flex: 1;
   background-color: white;
-  margin: 20px;
+  margin: 60px 20px 60px 20px;
 }
 
 .customer-image {
-  max-width: 50%;
+  max-width: 80%;
+  height: auto;
+  padding: 20px 20px 0 20px;
+}
+
+.column-cust-image {
+  flex: 1;
+}
+
+.column-cust-info {
+  flex: 2;
+}
+
+.cust-info-text {
+  padding: 5px 20px 5px 20px;
 }

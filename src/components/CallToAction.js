@@ -11,11 +11,11 @@ const CallToAction = () => {
           <div className="column">
             <h1 className="display-title text-color-primary-yellow">Little Lemon</h1>
             <h3 className="sub-title text-color-light">Chicago</h3>
-            <p className="lead-text text-color-light">{intro}</p>
+            <p className="lead-text text-color-light text-left">{intro}</p>
             <button className="buttonprimary">Reserve a table</button>
           </div>
-          <div className="column">
-            <img id="flagimage" src={RestaurantFood} />
+          <div className="column-right">
+            <img id="flag-image" src={RestaurantFood} />
           </div>
         </div>
       </section>

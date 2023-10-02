@@ -33,7 +33,7 @@ const Specials = () => {
           <div className="column">
             <h2 className="display-title text-color-dark">This week's specials!</h2>
           </div>
-          <div className="column">
+          <div className="column-right">
             <button className="buttonprimary">Online Menu</button>
           </div>
         </div>

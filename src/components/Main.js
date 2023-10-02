@@ -23,11 +23,9 @@ function submitForm(formData) {
 
   return (
     <>
-      <body>
-        <Header />
-        <Homepage />
-        <Footer />
-      </body>
+      <Header />
+      <Homepage />
+      <Footer />
     </>
   );
 };
