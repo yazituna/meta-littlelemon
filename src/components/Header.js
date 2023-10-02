@@ -5,8 +5,12 @@ import logo from '../assets/Logo.svg';
 const Header = () => {
   return (
     <header>
-        <img src={logo} alt="Little Lemon Logo" width="180" />
+      <div className="column">
+        <img src={logo} alt="Little Lemon Logo" width="360" />
+      </div>
+      <div className="column">
         <Nav />
+      </div>
     </header>
   );
 };

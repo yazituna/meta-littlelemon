@@ -36,3 +36,184 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  font-family: 'KarlaRegular';
+  color: #262626;
+}
+
+.sectioncontainer{
+  padding: 3rem 10% 3rem 10%;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 10% 3rem 10%;
+}
+
+.display-title {
+  font-family: 'MarkaziText';
+  font-size: 64pt;
+}
+
+.sub-title {
+  font-family: 'MarkaziText';
+  font-size: 40pt;
+}
+
+.lead-text {
+  font-family: 'KarlaRegular';
+  font-size: 18pt;
+  max-width: 65ch;
+}
+
+.section-title {
+  font-family: 'KarlaExtraBold';
+  font-size: 20pt;
+}
+
+.section-title-center {
+  text-align: center;
+}
+
+.section-categories {
+  font-family: 'KarlaExtraBold';
+  font-size: 16pt;
+}
+
+.card-title {
+  font-family: 'KarlaBold';
+  font-size: 18pt;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+p {
+  font-family: 'KarlaRegular';
+  font-size: 16pt;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+
+.highlight {
+  font-family: 'KarlaMedium';
+  font-size: 16pt;
+}
+
+a {
+  font-family: 'KarlaBold';
+  font-size: 16pt;
+}
+
+footer {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 3rem 10% 3rem 10%;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column {
+  flex: 1;
+  margin: 20px;
+}
+
+.price {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 20px;
+}
+
+.boxed-text {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.order-link {
+  padding-left: 20px;
+}
+
+.bg-green {
+  background: #495E57;
+}
+
+.bg-gray {
+  background: #EDEFEE;
+}
+
+.bg-white {
+  background: white;
+}
+
+.text-color-dark {
+  color: black;
+}
+
+.text-color-primary {
+  color: #495E57;
+}
+
+.text-color-primary-yellow {
+  color: #F4CE14;
+}
+
+.text-color-secondary {
+  color: #EE9972
+}
+
+.text-color-light {
+  color: white;
+}
+
+header nav li {
+  display: inline-block;
+  padding: 20px 10px 20px 10px;
+  margin: 0;
+}
+
+.buttonprimary {
+  padding: 24px 64px;
+  border-radius: 16px;
+  color: black;
+  background-color: #F4CE14;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#flagimage {
+  width: 375px;
+  height: 325px;
+}
+
+.specialscard {
+  flex: 1;
+  background-color: #EDEFEE;
+  margin: 20px;
+  border-radius: 16px;
+}
+
+.specialsimage {
+  width: 100%;
+}
+
+.customerscard {
+  flex: 1;
+  background-color: white;
+  margin: 20px;
+}
+
+.customer-image {
+  max-width: 50%;
+}
