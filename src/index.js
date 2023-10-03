@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter} from "react-router-dom"
 import './fonts/Karla/Karla-Medium.ttf';
 import './fonts/Karla/Karla-Regular.ttf';
 import './fonts/Karla/Karla-Bold.ttf';
@@ -12,7 +13,9 @@ import './fonts/MarkaziText/MarkaziText-Medium.ttf';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
