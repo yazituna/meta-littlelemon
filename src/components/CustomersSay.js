@@ -40,7 +40,7 @@ const CustomersSay = () => {
         <div className="row">
           <h2 className="section-title section-title-center">Testimonials</h2>
         </div>
-        <div className="row">
+        <div className="testimonial-container">
           {reviews.map((review) => (
               <CustomerCard
                 key={review.name}

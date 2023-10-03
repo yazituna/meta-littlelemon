@@ -89,13 +89,48 @@ footer {
   padding: 3rem 20% 3rem 20%;
 }
 
+.footer-nav-list {
+  list-style: none;
+  font-family: 'KarlaRegular';
+  font-size: 16pt;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+
+.footer-nav-list > li > a {
+  font-family: 'KarlaRegular';
+  font-size: 16pt;
+  line-height: 1.5;
+  max-width: 65ch;
+}
+
+#footer-logo {
+  max-width: 40%;
+  height: auto;
+  padding-bottom: 20px;
+  padding-right: 20px;
+}
+
+.social-icon {
+  max-width: 12%;
+  padding-top: 8px;
+  padding-right: 8px;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
 }
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
 
 .row-spaced {
   display: flex;
@@ -107,6 +142,10 @@ footer {
 
 .column {
   flex: 1;
+}
+
+.column15 {
+  flex: 1.5;
 }
 
 .column-right {
@@ -185,7 +224,7 @@ header nav li {
 }
 
 #flag-image {
-  max-width: 80%;
+  width: 80%;
   height: auto;
   border-radius: 16px;
 }
@@ -229,3 +268,11 @@ header nav li {
 .cust-info-text {
   padding: 5px 20px 5px 20px;
 }
+
+.chic-image {
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
+
+

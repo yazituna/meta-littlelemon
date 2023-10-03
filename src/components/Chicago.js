@@ -14,8 +14,7 @@ const Chicago = () => {
             <p className="text-left">{about}</p>
           </div>
           <div className="column">
-            <img src={MarioandAdrion} />
-            <img src={Chef} />
+            <img className="chic-image" src={MarioandAdrion} />
           </div>
         </div>
       </section>
