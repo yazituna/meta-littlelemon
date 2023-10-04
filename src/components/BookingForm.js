@@ -15,13 +15,16 @@ const BookingForm = (props) => {
 
     const {isLoading, response, submit} = useSubmit();
 
+    const yesterday = new Date(Date.now() -86400000);
+
     const formik = useFormik({
         initialValues: {
           guests: '',
           resDate: '',
           resTime: '',
-          occasion: 'None',
+          occasion: 'none',
           notes: '',
+          fullName: '',
           phone: '',
           email: '',
         },
@@ -29,11 +32,30 @@ const BookingForm = (props) => {
           submit('https://yazituna.com', values)
         },
         validationSchema: Yup.object({
-          firstName: Yup.string().required('Required'),
-          email: Yup.string().email('Invalid email').required('Required'),
-          comment: Yup.string().min(25, 'Must be at least 25 characters!').required('Required'),
+          guests: Yup.number()
+            .typeError('Please enter a number.')
+            .required('Required field.'),
+          resDate: Yup.date()
+            .typeError('Please enter a valid date.')
+            .min(yesterday, 'You cannot select a date earlier than today.')
+            .required('Required field.'),
+          resTime: Yup.string().required('Required field.'),
+          fullName: Yup.string()
+            .min(3, 'Your name must be at least 3 characters.')
+            .max(80, 'Your name cannot exceed 80 characters.')
+            .required('Required field.'),
+          phone: Yup.number()
+            .typeError("That doesn't look like a phone number.")
+            .positive("A phone number can't start with a minus.")
+            .integer("A phone number can't include a decimal point.")
+            .min(1000000, 'Invalid phone number.')
+            .required('Required field.'),
+          email: Yup.string()
+            .email('Invalid email address.')
+            .required('Required field.'),
         }),
       });
+
       return (
         <section className="sectioncontainer">
             <form className="form-style" onSubmit={formik.handleSubmit}>
@@ -49,10 +71,12 @@ const BookingForm = (props) => {
                         <input
                             id="guests"
                             type="number"
-                            placeholder="1"
+                            placeholder="Number of guests"
                             min="1"
                             max="10"
+                            {...formik.getFieldProps('guests')}
                             />
+                        {formik.touched.guests && formik.errors.guests ? (<div>{formik.errors.guests}</div>) : null}
                     </div>
                 </div>
                 <div className="row-form">
@@ -64,7 +88,9 @@ const BookingForm = (props) => {
                         <input
                             id="resDate"
                             type="date"
+                            {...formik.getFieldProps('resDate')}
                             />
+                        {formik.touched.resDate && formik.errors.resDate ? (<div>{formik.errors.resDate}</div>) : null}
                     </div>
                 </div>
                 <div className="row-form">
@@ -73,11 +99,15 @@ const BookingForm = (props) => {
                     </div>
                     <div className="column-form-input">
                         <label htmlFor="resTime">Choose time</label>
-                        <select id="resTime ">
+                        <select
+                            id="resTime "
+                            {...formik.getFieldProps('resTime')}>
+                                <option value='' disabled selected>Choose time</option>
                             {availableTimes.map((availableTime) => (
-                                <option key={availableTime}>{availableTime}</option>
+                                <option key={availableTime} value={availableTime}>{availableTime}</option>
                             ))}
                         </select>
+                        {formik.touched.resTime && formik.errors.resTime ? (<div>{formik.errors.resTime}</div>) : null}
                     </div>
                 </div>
                 <div className="row-form">
@@ -86,10 +116,12 @@ const BookingForm = (props) => {
                     </div>
                     <div className="column-form-input">
                         <label htmlFor="occasion">Occasion</label>
-                        <select id="occasion">
-                            <option>None</option>
-                            <option>Birthday</option>
-                            <option>Anniversary</option>
+                        <select
+                            id="occasion"
+                            {...formik.getFieldProps('occasion')}>
+                            <option value="none">None</option>
+                            <option value="birthday">Birthday</option>
+                            <option value="anniversary">Anniversary</option>
                         </select>
                     </div>
                 </div>
@@ -102,9 +134,13 @@ const BookingForm = (props) => {
                         <textarea
                             id="notes"
                             placeholder="Leave your note here..."
+                            maxlength="300"
                             rows="5"
-                            columns="65" />
+                            columns="65"
+                            {...formik.getFieldProps('notes')}
+                            />
                     </div>
+
                 </div>
                 <div className="row-form">
                     <div className="column-form-icon">
@@ -112,26 +148,32 @@ const BookingForm = (props) => {
                     </div>
                     <div className="column-form-input">
                     <p>We need your contact information to confirm your reservation.</p>
-                        <label htmlFor="guests" className="contact-label">Fullname</label>
+                        <label htmlFor="fullName" className="contact-label">Fullname</label>
                         <input
-                            id="guests"
-                            type="number"
-                            placeholder="1"
-                            min="1"
-                            max="10"
+                            id="fullName"
+                            type="text"
+                            placeholder="Fullname"
+                            maxlength="80"
+                            {...formik.getFieldProps('fullName')}
                             />
+                        {formik.touched.fullName && formik.errors.fullName ? (<div>{formik.errors.fullName}</div>) : null}
+
                         <label htmlFor="phone" className="contact-label">Phone number</label>
                         <input
                             id="phone"
                             type="tel"
                             placeholder="Phone number"
+                            {...formik.getFieldProps('phone')}
                             />
+                        {formik.touched.phone && formik.errors.phone ? (<div>{formik.errors.phone}</div>) : null}
                         <label htmlFor="email" className="contact-label">Email address</label>
                         <input
                             id="email"
                             type="email"
                             placeholder="Email address"
+                            {...formik.getFieldProps('email')}
                             />
+                        {formik.touched.email && formik.errors.email ? (<div>{formik.errors.email}</div>) : null}
                     </div>
                 </div>
                 <div className="row-form">
