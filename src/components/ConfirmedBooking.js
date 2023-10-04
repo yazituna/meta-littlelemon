@@ -1,8 +1,14 @@
 import React from "react";
+import PageHeading from "./PageHeading";
 
-const ConfirmedBooking = () => {
+const ConfirmedBooking = (props) => {
+  const heading = "Reservation confirmed!";
+  const subtitle = "Enjoy your time in your favorite restaurant";
+
   return (
-    <div>Booking confirmed!</div>
+    <>
+      <PageHeading heading={heading} subtitle={subtitle}/>
+    </>
   );
 };
 

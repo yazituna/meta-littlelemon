@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
 import * as Yup from 'yup';
+import { Link } from "react-router-dom";
 import useSubmit from "../hooks/useSubmit";
 import guestIcon from "../assets/guests.png";
 import dateIcon from "../assets/date.png";
 import timeIcon from "../assets/time.png";
 import occIcon from "../assets/occasion_2.png";
 import noteIcon from "../assets/notes.png";
+import contIcon from "../assets/contact.png"
 
 const BookingForm = (props) => {
     const availableTimes = props.avaiableTimes;
@@ -20,6 +22,8 @@ const BookingForm = (props) => {
           resTime: '',
           occasion: 'None',
           notes: '',
+          phone: '',
+          email: '',
         },
         onSubmit: (values) => {
           submit('https://yazituna.com', values)
@@ -33,6 +37,9 @@ const BookingForm = (props) => {
       return (
         <section className="sectioncontainer">
             <form className="form-style" onSubmit={formik.handleSubmit}>
+                <div className="row-form">
+                    <p>Please fill out the below form correctly to reserve your table in advance <br></br>in the best restaurant of the town!</p>
+                </div>
                 <div className="row-form">
                     <div className="column-form-icon">
                         <img src={guestIcon} alt="Guest icon" />
@@ -100,7 +107,39 @@ const BookingForm = (props) => {
                     </div>
                 </div>
                 <div className="row-form">
-                    <input type="submit" className="buttonprimary input-submit" value="Make Your reservation" />
+                    <div className="column-form-icon">
+                        <img src={contIcon} alt="Contact icon" />
+                    </div>
+                    <div className="column-form-input">
+                    <p>We need your contact information to confirm your reservation.</p>
+                        <label htmlFor="guests" className="contact-label">Fullname</label>
+                        <input
+                            id="guests"
+                            type="number"
+                            placeholder="1"
+                            min="1"
+                            max="10"
+                            />
+                        <label htmlFor="phone" className="contact-label">Phone number</label>
+                        <input
+                            id="phone"
+                            type="tel"
+                            placeholder="Phone number"
+                            />
+                        <label htmlFor="email" className="contact-label">Email address</label>
+                        <input
+                            id="email"
+                            type="email"
+                            placeholder="Email address"
+                            />
+                    </div>
+                </div>
+                <div className="row-form">
+                    <div className="column-form-icon"></div>
+                    <div className="column-form-input">
+                        <p id="termsc">By choosing to make your reservation, you agree to <Link>the terms and conditions</Link> of our services.</p>
+                        <input type="submit" className="buttonprimary input-submit" value="Make your reservation" />
+                    </div>
                 </div>
             </form>
         </section>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import arrowIcon from "../assets/arrow.png";
 
 const SpecialsCard = ({ title, price, description, imageSrc }) => {
   return (

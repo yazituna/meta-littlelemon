@@ -168,16 +168,26 @@ footer {
 }
 
 .order-link {
+  font-family: "KarlaExtraBold";
   padding-left: 20px;
+  font-size: 16pt;
   color: black;
   text-decoration: none;
 }
 
+.order-link:hover {
+  color: #EE9972;
+}
+
 .link-to-res {
-  font-family: 'KarlaBold';
+  font-family: 'KarlaExtraBold';
   color: black;
   font-size: 16pt;
   text-decoration: none;
+}
+
+.link-to-res:hover {
+  color: #EE9972;
 }
 
 .column {
@@ -254,9 +264,13 @@ header nav li {
   color: black;
   background-color: #F4CE14;
   border: none;
-  font-size: 18px;
+  font-size: 18pt;
   font-weight: bold;
   margin: 20px 0 20px 0;
+}
+
+.buttonprimary:hover {
+  background-color: #EE9972;
 }
 
 #flag-image {
@@ -320,7 +334,7 @@ header nav li {
 .row-form {
   display: flex;
   justify-content: left;
-  align-items: center;
+  align-items: top;
   width: 100%;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -372,6 +386,50 @@ textarea {
 }
 
 .input-submit {
-  width: 66%;
+  display: block;
+  font-family: "KarlaBold";
   margin-bottom: 5rem;
+  width: 62%;
+}
+
+.contact-label {
+  padding-top: 20px;
+}
+
+#termsc {
+  display: block;
+}
+
+@media screen and (max-width: 1000px) {
+  .sectioncontainer{
+    padding: 5rem 40px 5rem 40px;
+  }
+
+  .page-heading-container {
+    padding: 5rem 40px 5rem 40px;
+  }
+
+  header {
+    padding: 3rem 40px 3rem 40px;
+  }
+
+  footer {
+    padding: 3rem 40px 3rem 40px;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  select {
+    width: 100%;
+  }
+
+  textarea {
+    width: 100%;
+  }
+
+  .input-submit {
+    width: 100%;
+  }
 }
