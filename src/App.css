@@ -86,6 +86,11 @@ p {
   font-size: 16pt;
 }
 
+.vimportant {
+  font-family: 'KarlaBold';
+  font-size: 16pt;
+}
+
 a {
   font-family: 'KarlaBold';
   font-size: 16pt;
@@ -184,6 +189,7 @@ footer {
   color: black;
   font-size: 16pt;
   text-decoration: none;
+  padding-top: 20px;
 }
 
 .link-to-res:hover {
@@ -323,6 +329,10 @@ header nav li {
   width: 100%;
   height: auto;
   padding: 20px;
+}
+
+.okIcon {
+  width: 16%;
 }
 
 .form-style {

@@ -6,6 +6,7 @@ import AboutPage from "./AboutPage";
 import OrderPage from "./OrderPage";
 import MenuPage from "./MenuPage";
 import LoginPage from "./LoginPage";
+import ConfirmedBooking from "./ConfirmedBooking";
 
 const Main = () => {
 
@@ -32,6 +33,7 @@ function submitForm(formData) {
       <Route path="/reservations" element={<BookingPage avaiableTimes = {availableTimes} submitForm = {submitForm} />}></Route>
       <Route path="/order" element={<OrderPage/>}></Route>
       <Route path="/login" element={<LoginPage/>}></Route>
+      <Route path="/confirmed" element={<ConfirmedBooking/>}></Route>
     </Routes>
   );
 };

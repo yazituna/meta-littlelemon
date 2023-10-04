@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage, useFormik } from "formik";
+import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import useSubmit from "../hooks/useSubmit";
 import guestIcon from "../assets/guests.png";
 import dateIcon from "../assets/date.png";
@@ -10,12 +10,16 @@ import occIcon from "../assets/occasion_2.png";
 import noteIcon from "../assets/notes.png";
 import contIcon from "../assets/contact.png"
 
+
+
 const BookingForm = (props) => {
     const availableTimes = props.avaiableTimes;
 
     const {isLoading, response, submit} = useSubmit();
 
     const yesterday = new Date(Date.now() -86400000);
+
+    let navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -29,12 +33,14 @@ const BookingForm = (props) => {
           email: '',
         },
         onSubmit: (values) => {
-          submit('https://yazituna.com', values)
+            let path = `/confirmed`; 
+            navigate(path);
         },
         validationSchema: Yup.object({
           guests: Yup.number()
             .typeError('Please enter a number.')
-            .required('Required field.'),
+            .max(10, 'At most 10 guests can be selected. For more, please contact us.')
+            .required('Guest number is required.'),
           resDate: Yup.date()
             .typeError('Please enter a valid date.')
             .min(yesterday, 'You cannot select a date earlier than today.')
@@ -45,7 +51,7 @@ const BookingForm = (props) => {
             .max(80, 'Your name cannot exceed 80 characters.')
             .required('Required field.'),
           phone: Yup.number()
-            .typeError("That doesn't look like a phone number.")
+            .typeError("Please enter a proper phone number.")
             .positive("A phone number can't start with a minus.")
             .integer("A phone number can't include a decimal point.")
             .min(1000000, 'Invalid phone number.')
