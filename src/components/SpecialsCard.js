@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const SpecialsCard = ({ title, price, description, imageSrc }) => {
   return (
@@ -15,8 +16,8 @@ const SpecialsCard = ({ title, price, description, imageSrc }) => {
         </div>
       </div>
       <div className="row-spaced">
-        <p className="boxed-text">{description}</p>
-        <a className="order-link">Order a delivery</a>
+        <p className="specials-text">{description}</p>
+        <Link to="/order" className='order-link'>Order a delivery</Link>
       </div>
     </div>
   );

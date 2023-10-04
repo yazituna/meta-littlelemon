@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import FooterLogo from "../assets/footerlogo.png";
 
 const socials = [
@@ -29,7 +30,9 @@ const socials = [
     },
   ];
 
-const Footer = () => {
+const Footer = (props) => {
+    const navs = props.navs;
+
     return (
         <footer className="bg-gray">
             <div className="column">
@@ -37,15 +40,15 @@ const Footer = () => {
             </div>
             <div className="column">
                 <h3 className="section-categories">Sitemap</h3>
-                <nav>
-                    <ul className="footer-nav-list">
-                        <li><a>Home</a></li>
-                        <li><a>About</a></li>
-                        <li><a>Menu</a></li>
-                        <li><a>Reservations</a></li>
-                        <li><a>Order Online</a></li>
-                        <li><a>Login</a></li>
-                    </ul>
+                <nav className="footer-nav-box">
+                    {navs.map((nav) => (
+                        <Link
+                            key={nav.page}
+                            to={nav.to}
+                            className='nav-item-footer'>
+                            {nav.page}
+                        </Link>
+                        ))}
                 </nav>
             </div>
             <div className="column15">
@@ -58,7 +61,7 @@ const Footer = () => {
             <h3 className="section-categories">Social Media</h3>
             <div>
                 {socials.map((social) => (
-                  <a href={social.url} target='_blank'>
+                  <a key={social.title} href={social.url} target='_blank'>
                     <img className="social-icon" src={social.getImageSrc()} alt={social.title} />
                   </a>
                   ))}

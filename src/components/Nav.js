@@ -8,7 +8,10 @@ const Nav = (props) => {
     return (
         <nav>
             {navs.map((nav) => (
-                  <Link to={nav.to} className='nav-item'>
+                  <Link
+                    key={nav.page}
+                    to={nav.to}
+                    className='nav-item-header'>
                     {nav.page}
                   </Link>
                   ))}

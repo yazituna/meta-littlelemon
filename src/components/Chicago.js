@@ -1,9 +1,8 @@
 import React from "react";
 import MarioandAdrion from "../assets/marioandadrian.jpg";
-import Chef from "../assets/chef.jpg";
 
-const about = "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.";
 const Chicago = () => {
+  const about = "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit.";
   return (
     <>
       <section className="sectioncontainer">

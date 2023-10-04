@@ -1,42 +1,13 @@
 import React, { useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import { Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
 import AboutPage from "./AboutPage";
 import OrderPage from "./OrderPage";
-import MenuPage from "./Menupage";
+import MenuPage from "./MenuPage";
 import LoginPage from "./LoginPage";
 
 const Main = () => {
-
-const navs = [
-  {
-    to: "/",
-    page: "Homepage",
-  },
-  {
-    to: "/about",
-    page: "About",
-  },
-  {
-    to: "/menu",
-    page: "Menu",
-  },
-  {
-    to: "/reservations",
-    page: "Reservations",
-  },
-  {
-    to: "/order",
-    page: "Order Online",
-  },
-  {
-    to: "/login",
-    page: "Login",
-  },
-];
 
 // useReducer
 const [availableTimes, setAvailableTimes] = useState([
@@ -54,18 +25,14 @@ function submitForm(formData) {
 }
 
   return (
-    <>
-      <Header navs={navs} />
-      <Routes> 
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/about" element={<AboutPage/>}></Route>
-        <Route path="/menu" element={<MenuPage/>}></Route>
-        <Route path="/reservations" element={<BookingPage avaiableTimes = {availableTimes} submitForm = {submitForm} />}></Route>
-        <Route path="/order" element={<OrderPage/>}></Route>
-        <Route path="/login" element={<LoginPage/>}></Route>
-      </Routes>
-      <Footer />
-    </>
+    <Routes> 
+      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/about" element={<AboutPage/>}></Route>
+      <Route path="/menu" element={<MenuPage/>}></Route>
+      <Route path="/reservations" element={<BookingPage avaiableTimes = {availableTimes} submitForm = {submitForm} />}></Route>
+      <Route path="/order" element={<OrderPage/>}></Route>
+      <Route path="/login" element={<LoginPage/>}></Route>
+    </Routes>
   );
 };
 

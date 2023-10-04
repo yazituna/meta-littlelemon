@@ -1,6 +1,15 @@
+import PageHeading from "./PageHeading";
+import SamplePageContent from "./SamplePageContent";
+
 function AboutPage() {
+    const heading = "About Little Lemon";
+    const subtitle = "Some information about Little Lemon";
+ 
     return (
-        <h1>About AboutLittleLemon</h1>
+        <>
+            <PageHeading heading={heading} subtitle={subtitle}/>
+            <SamplePageContent />
+        </>
     )
 }
 
