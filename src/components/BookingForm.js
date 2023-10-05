@@ -15,12 +15,11 @@ const BookingForm = (props) => {
     const availableTimes = props.availableTimes;
     const submitForm = props.submitForm;
     const updateTimes = props.updateTimes;
-    const resDetails = props.resDetails;
-
 
     const yesterday = new Date(Date.now() -86400000);
 
     const formik = useFormik({
+        enableReinitialize: true,
         initialValues: {
           guests: '',
           resDate: '',
@@ -32,8 +31,7 @@ const BookingForm = (props) => {
           email: '',
         },
         onSubmit: (values) => {
-            resDetails = values;
-            submitForm();
+            submitForm(values);
         },
         validationSchema: Yup.object({
           guests: Yup.number()
@@ -93,8 +91,12 @@ const BookingForm = (props) => {
                         <input
                             id="resDate"
                             type="date"
-                            {...formik.getFieldProps('resDate')}
-                            onChange={() => {updateTimes()}}
+                            onChange={(e) => {
+                                updateTimes();
+                                formik.handleChange(e);
+                              }}
+                            onBlur={formik.handleBlur}
+                            value={formik.values.resDate}
                             />
                         {formik.touched.resDate && formik.errors.resDate ? (<div>{formik.errors.resDate}</div>) : null}
                     </div>
@@ -108,7 +110,7 @@ const BookingForm = (props) => {
                         <select
                             id="resTime "
                             {...formik.getFieldProps('resTime')}>
-                            <option value='' disabled selected>Choose time</option>
+                            <option value='' disabled defaultValue>Choose time</option>
                             {availableTimes.map((availableTime) => (
                             <option key={availableTime} value={availableTime}>{availableTime}</option>
                             ))}
@@ -140,7 +142,7 @@ const BookingForm = (props) => {
                         <textarea
                             id="notes"
                             placeholder="Leave your note here..."
-                            maxlength="300"
+                            maxLength="300"
                             rows="5"
                             columns="65"
                             {...formik.getFieldProps('notes')}
@@ -159,7 +161,7 @@ const BookingForm = (props) => {
                             id="fullName"
                             type="text"
                             placeholder="Fullname"
-                            maxlength="80"
+                            maxLength="80"
                             {...formik.getFieldProps('fullName')}
                             />
                         {formik.touched.fullName && formik.errors.fullName ? (<div>{formik.errors.fullName}</div>) : null}
@@ -195,3 +197,7 @@ const BookingForm = (props) => {
 };
 
 export default BookingForm;
+
+/* {availableTimes.map((availableTime) => (
+    <option key={availableTime} value={availableTime}>{availableTime}</option>
+    ))} */

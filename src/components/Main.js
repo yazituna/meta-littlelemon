@@ -6,6 +6,7 @@ import AboutPage from "./AboutPage";
 import OrderPage from "./OrderPage";
 import MenuPage from "./MenuPage";
 import LoginPage from "./LoginPage";
+import ConfirmPage from "./ConfirmPage";
 import ConfirmedBooking from "./ConfirmedBooking";
 
 const hours = [];
@@ -13,7 +14,7 @@ for (let i=12; i<=21; i++){
     hours.push(i.toString().concat(":00"));
 };
 
-const Main = (hours) => {
+const Main = () => {
 
 const [availableTimes, setAvailableTimes] = useState(["14:00", "17:00", "20:00"]);
 
@@ -27,6 +28,9 @@ const updateTimes = () => {
           selectedhours.push(temphour);
       }
   };
+
+  selectedhours.sort();
+
   setAvailableTimes(selectedhours);
 };
 
@@ -43,14 +47,24 @@ const [resDetails, setResDetails] = useState({
 
 let navigate = useNavigate();
 
-function submitForm() {
-  let path = `/confirmed`;
+const submitForm = (values) => {
+  setResDetails({
+    guests: values.guests,
+    resDate: values.resDate,
+    resTime: values.resTime,
+    occasion: values.occasion,
+    notes: values.notes,
+    fullName: values.fullName,
+    phone: values.phone,
+    email: values.email,
+  })
+  let path = `/pconfirm`;
   navigate(path);
 };
 
   return (
     <Routes> 
-      <Route path="/" element={<HomePage />}></Route>
+      <Route path="/" element={<HomePage hours={availableTimes} />}></Route>
       <Route path="/about" element={<AboutPage/>}></Route>
       <Route path="/menu" element={<MenuPage/>}></Route>
       <Route
@@ -59,12 +73,12 @@ function submitForm() {
           availableTimes = {availableTimes}
           submitForm = {submitForm}
           updateTimes = {updateTimes}
-          resDetails = {resDetails}
            />}>
           </Route>
       <Route path="/order" element={<OrderPage/>}></Route>
       <Route path="/login" element={<LoginPage/>}></Route>
-      <Route path="/confirmed" element={<ConfirmedBooking resDetails = {resDetails} />}></Route>
+      <Route path="/pconfirm" element={<ConfirmPage resDetails = {resDetails}/>}></Route>
+      <Route path="/confirmed" element={<ConfirmedBooking/>}></Route>
     </Routes>
   );
 };

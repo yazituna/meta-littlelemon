@@ -12,8 +12,7 @@ const BookingPage = (props) => {
       <BookingForm
         availableTimes = {props.availableTimes}
         submitForm = {props.submitForm}
-        updateTimes = {props.updateTimes}
-        resDetails = {props.resDetails}/>
+        updateTimes = {props.updateTimes}/>
     </>
   );
 };

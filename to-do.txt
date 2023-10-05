@@ -1,0 +1,8 @@
+[ ] add functionality to the reservation button call-to-action
+[ ] add functionality to the online menu button specials
+[ ] design confirm page 
+    [ ] question mark icon
+    [ ] collected info
+    [ ] back and confirm buttons
+[ ] improve mobile compatibility
+[ ] unit tests
