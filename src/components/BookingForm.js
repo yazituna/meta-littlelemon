@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import guestIcon from "../assets/guests.png";
 import dateIcon from "../assets/date.png";
 import timeIcon from "../assets/time.png";
@@ -12,11 +12,13 @@ import contIcon from "../assets/contact.png"
 
 
 const BookingForm = (props) => {
-    const availableTimes = props.avaiableTimes;
+    const availableTimes = props.availableTimes;
+    const submitForm = props.submitForm;
+    const updateTimes = props.updateTimes;
+    const resDetails = props.resDetails;
+
 
     const yesterday = new Date(Date.now() -86400000);
-
-    let navigate = useNavigate();
 
     const formik = useFormik({
         initialValues: {
@@ -30,8 +32,8 @@ const BookingForm = (props) => {
           email: '',
         },
         onSubmit: (values) => {
-            let path = `/confirmed`;
-            navigate(path);
+            resDetails = values;
+            submitForm();
         },
         validationSchema: Yup.object({
           guests: Yup.number()
@@ -92,6 +94,7 @@ const BookingForm = (props) => {
                             id="resDate"
                             type="date"
                             {...formik.getFieldProps('resDate')}
+                            onChange={() => {updateTimes()}}
                             />
                         {formik.touched.resDate && formik.errors.resDate ? (<div>{formik.errors.resDate}</div>) : null}
                     </div>

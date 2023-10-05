@@ -9,7 +9,11 @@ const BookingPage = (props) => {
   return (
     <>
       <PageHeading heading={heading} subtitle={subtitle}/>
-      <BookingForm avaiableTimes = {props.avaiableTimes} submitForm = {props.submitForm}/>
+      <BookingForm
+        availableTimes = {props.availableTimes}
+        submitForm = {props.submitForm}
+        updateTimes = {props.updateTimes}
+        resDetails = {props.resDetails}/>
     </>
   );
 };
