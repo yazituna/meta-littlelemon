@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import arrowIcon from "../assets/arrow.png";
 
 const SpecialsCard = ({ title, price, description, imageSrc }) => {
   return (
     <div className="specialscard column">
       <div className="row">
-        <img src={imageSrc} alt={title} className="specials-image" /> 
+        <img src={imageSrc} alt={title} className="specials-image" />
       </div>
       <div className="row">
         <div className="column">

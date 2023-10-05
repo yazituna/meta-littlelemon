@@ -17,7 +17,7 @@ const PageHeading = () => {
                 <Link key="Reservations" to="/reservations" className='link-to-res'>Go to Reservations Page</Link>
             </div>
             <div className="column">
-                <img className="chic-image" src={Chef} />
+                <img className="chic-image" src={Chef} alt="Chef making salad" />
             </div>
         </div>
       </section>

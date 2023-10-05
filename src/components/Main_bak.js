@@ -11,14 +11,20 @@ import SampleJson from "../data/samplecalendar.json";
 
 // useReducer
 const initializeTimes = (availableTimes) => {
-  const dateTimes = fetch(SampleJson).then((response) => response.json());
-
   const today = new Date(Date.now());
 
-  console.log(dateTimes);
+  const fetchData = () => {
+    fetch(SampleJson)
+    .then((response) => response.json())
+    .then(data => initializeTimes(data));
+  };
+  
+  useEffect(() => {
+    fetchData();
+  }, []);
 
 
-  return dateTimes[today];
+  return availableTimes[today];
 };
 
 const updateTimes = (state, action) => {};
