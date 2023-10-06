@@ -4,11 +4,11 @@ import Specials from "./Specials";
 import CustomersSay from "./CustomersSay";
 import Chicago from "./Chicago";
 
-const HomePage = () => {
+const HomePage = (props) => {
   return (
     <>
-        <CallToAction />
-        <Specials />
+        <CallToAction goReservation={props.goReservation} />
+        <Specials goMenu={props.goMenu}/>
         <CustomersSay />
         <Chicago />
     </>

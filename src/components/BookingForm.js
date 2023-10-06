@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
-import { Link } from "react-router-dom";
 import guestIcon from "../assets/guests.png";
 import dateIcon from "../assets/date.png";
 import timeIcon from "../assets/time.png";
@@ -108,12 +107,12 @@ const BookingForm = (props) => {
                     <div className="column-form-input">
                         <label htmlFor="resTime">Choose time</label>
                         <select
-                            id="resTime "
+                            id="resTime"
                             {...formik.getFieldProps('resTime')}>
                             <option value='' disabled defaultValue>Choose time</option>
-                            {availableTimes.map((availableTime) => (
+                            {availableTimes ? availableTimes.map((availableTime) => (
                             <option key={availableTime} value={availableTime}>{availableTime}</option>
-                            ))}
+                            )) : null}
                         </select>
                         {formik.touched.resTime && formik.errors.resTime ? (<div>{formik.errors.resTime}</div>) : null}
                     </div>
@@ -187,7 +186,6 @@ const BookingForm = (props) => {
                 <div className="row-form">
                     <div className="column-form-icon"></div>
                     <div className="column-form-input">
-                        <p id="termsc">By choosing to make your reservation, you agree to <Link>the terms and conditions</Link> of our services.</p>
                         <input type="submit" className="buttonprimary input-submit" value="Make your reservation" />
                     </div>
                 </div>

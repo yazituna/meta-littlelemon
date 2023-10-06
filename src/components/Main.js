@@ -1,4 +1,4 @@
-import React, { useState , useEffect, useReducer } from "react";
+import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import HomePage from "./HomePage";
 import BookingPage from "./BookingPage";
@@ -16,7 +16,7 @@ for (let i=12; i<=21; i++){
 
 const Main = () => {
 
-const [availableTimes, setAvailableTimes] = useState(["14:00", "17:00", "20:00"]);
+const [availableTimes, setAvailableTimes] = useState([]);
 
 const updateTimes = () => {
   let randtimes = Math.floor(Math.random() * (hours.length-2)) + 2;
@@ -62,9 +62,24 @@ const submitForm = (values) => {
   navigate(path);
 };
 
+const goReservation = () => {
+  let path = `/reservations`;
+  navigate(path);
+}
+
+const goMenu = () => {
+  let path = `/order`;
+  navigate(path);
+}
+
+const goConfirmed = () => {
+  let path = `/confirmed`;
+  navigate(path);
+}
+
   return (
     <Routes> 
-      <Route path="/" element={<HomePage hours={availableTimes} />}></Route>
+      <Route path="/" element={<HomePage goReservation={goReservation} goMenu={goMenu} />}></Route>
       <Route path="/about" element={<AboutPage/>}></Route>
       <Route path="/menu" element={<MenuPage/>}></Route>
       <Route
@@ -77,7 +92,7 @@ const submitForm = (values) => {
           </Route>
       <Route path="/order" element={<OrderPage/>}></Route>
       <Route path="/login" element={<LoginPage/>}></Route>
-      <Route path="/pconfirm" element={<ConfirmPage resDetails = {resDetails}/>}></Route>
+      <Route path="/pconfirm" element={<ConfirmPage resDetails = {resDetails} goConfirmed={goConfirmed}/>}></Route>
       <Route path="/confirmed" element={<ConfirmedBooking/>}></Route>
     </Routes>
   );

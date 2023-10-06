@@ -406,8 +406,65 @@ textarea {
   padding-top: 20px;
 }
 
+.queIcon {
+  padding-bottom: 20px;
+}
+
+.text-confirm {
+  display: block;
+}
+
+.table-text {
+  font-family: "KarlaMedium";
+  font-size: 16pt;
+  line-height: 2;
+  padding: 20px;
+}
+
+.confirm-table {
+  display: block;
+  background-color: #EDEFEE;
+  width: 80%;
+}
+
+.row-confirm {
+  justify-content: center;
+}
+
+.table-row {
+  display: flex;
+  width: 100%;
+}
+
+.table-app {
+  flex: 2;
+}
+
+.table-value {
+  font-family: "KarlaBold";
+  flex: 4;
+}
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+}
+
 #termsc {
   display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  max-width: 100ch;
+}
+
+.confirm-linkres {
+  margin-right: 40px;
+  text-decoration: none;
+  color: black;
+}
+
+.confirm-linkres:hover {
+  color: #EE9972;
 }
 
 @media screen and (max-width: 1000px) {

@@ -25,7 +25,7 @@ const specialslist = [
   }
 ];
 
-const Specials = () => {
+const Specials = (props) => {
   return (
     <>
       <section className="sectioncontainer">
@@ -34,7 +34,7 @@ const Specials = () => {
             <h2 className="display-title text-color-dark">This week's specials!</h2>
           </div>
           <div className="column-right">
-            <button className="buttonprimary">Online Menu</button>
+            <button className="buttonprimary" onClick={props.goMenu}>Online Menu</button>
           </div>
         </div>
         <div className="row">
