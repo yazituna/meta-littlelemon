@@ -99,7 +99,7 @@ a {
 .nav-item-header {
   font-family: 'KarlaBold';
   color: black;
-  font-size: 16pt;
+  font-size: 12pt;
   padding: 12px;
   text-decoration: none;
 }
@@ -351,11 +351,11 @@ header nav li {
 }
 
 .column-form-icon {
-  width: 10%;
+  width: 15%;
 }
 
 .column-form-input {
-  width: 90%;
+  width: 85%;
 }
 
 label {
