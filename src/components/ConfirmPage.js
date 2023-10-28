@@ -4,8 +4,8 @@ import queIcon from "../assets/question.png";
 import { Link } from "react-router-dom";
 
 const ConfirmPage = (props) => {
-  const heading = "Reservation confirmed!";
-  const subtitle = "Enjoy your time in your favorite restaurant!";
+  const heading = "Confirm your reservation!";
+  const subtitle = "Please confirm the details to precede!";
 
   const resDetails = props.resDetails;
 

@@ -350,6 +350,15 @@ header nav li {
   padding-bottom: 40px;
 }
 
+.row-form-pl {
+  display: flex;
+  justify-content: left;
+  align-items: top;
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .column-form-icon {
   width: 15%;
 }

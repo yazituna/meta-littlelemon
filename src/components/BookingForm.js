@@ -61,7 +61,7 @@ const BookingForm = (props) => {
       return (
         <section className="sectioncontainer">
             <form className="form-style" onSubmit={formik.handleSubmit}>
-                <div className="row-form">
+                <div className="row-form-pl">
                     <p>Please fill out the below form correctly to reserve your table in advance <br></br>in the best restaurant of the town!</p>
                 </div>
                 <div className="row-form">
